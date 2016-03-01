@@ -1,0 +1,14 @@
+<form action="/Ports/create" method="post" class="form-signin">
+  <h2>New Port Forward</h2>
+  <h4>Source IP</h4>
+  <input type="text" class="form-control" placeholder="xxx.xxx.xxx.xxx" name="source_ip">
+  <h4>Source Port</h4>
+  <input type="text" class="form-control" placeholder="1024 - 65535" name="source_port">
+  <h4>Destination IP</h4>
+  <input type="text" class="form-control" placeholder="xxx.xxx.xxx.xxx" name="dest_ip">
+  <h4>Destination Port</h4>
+  <input type="text" class="form-control" placeholder="1024 - 65535" name="dest_port">
+  <br>
+  <input type="submit" class="btn btn-lg btn-primary btn-block" value="Add Item">
+  <input type="hidden" name="_csrf" value="<%= _csrf %>">
+</form>

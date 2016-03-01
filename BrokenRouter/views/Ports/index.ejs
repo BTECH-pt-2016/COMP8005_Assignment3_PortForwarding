@@ -1,0 +1,19 @@
+<h1><a href="/Ports/new"><span class="glyphicon glyphicon-plus"></span></a> List Page</h1>
+<table class="table table-striped">
+  <tr>
+    <th width="100px">Action</th>
+    <th>Source IP</th>
+    <th>Source Port</th>
+    <th>Destination IP</th>
+    <th>Destination Port</th>
+  </tr>
+  <% _.each(ports, function(Ports) { %>
+  <tr>
+    <td><a href="/Ports/destroy/<%= Ports.id %>"><span class="glyphicon glyphicon-remove"></span></a> <span class="glyphicon glyphicon-pencil"></span></td>
+    <td><%= Ports.source_ip %></td>
+    <td><%= Ports.source_port %></td>
+    <td><%= Ports.dest_ip %></td>
+    <td><%= Ports.dest_port %></td>
+  </tr>
+  <% }) %>
+</table>
