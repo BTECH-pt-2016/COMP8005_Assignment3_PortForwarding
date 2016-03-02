@@ -35,6 +35,15 @@ module.exports = {
       if (err) return next(err);
       res.redirect('/Ports/index');
     });
+  },
+
+  refresh: function (req, res) {
+    if (sails.config.myconf.pythonChild != 65535) {
+      sails.config.myconf.pythonChild.kill();
+    }
+    var spawn = require("child_process").spawn;
+    sails.config.myconf.pythonChild = spawn('python',["/root/.test/COMP8005_Assignment3_PortForwarding/BrokenRouter/forwarder.py"]);
+    res.redirect('/Ports/index');
   }
 
 };

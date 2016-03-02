@@ -4,12 +4,13 @@ import json
 
 HOST = ""
 BUF_SIZE = 1024
-CONFIG_FILE_PATH = './localDiskDb.db';
+CONFIG_FILE_PATH = './.tmp/localDiskDb.db';
 CONFIG_DATA  = []
 BACKLOG = 5
 
 def server(settings):
 	server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+	server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 	server.bind(('', int(settings["source_port"])));
 	print(int(settings["source_port"]));
 	server.listen(BACKLOG)
@@ -28,7 +29,7 @@ def forward(client, server):
 		try:
 			data = client.recv(BUF_SIZE)
 			if data:
-				print("sending data to the destination:", data)
+				#print("sending data to the destination:", data)
 				server.sendall(data)
 			else:
 				print("closing connection with client")

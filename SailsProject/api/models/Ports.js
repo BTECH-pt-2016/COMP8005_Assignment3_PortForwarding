@@ -9,15 +9,9 @@ module.exports = {
 
   attributes: {
 
-    source_ip: {
-      type:'string',
-      required: true
-    },
-
     source_port: {
       type:'integer',
-      required: true,
-      unique: true
+      required: true
     },
 
     dest_ip: {
@@ -27,8 +21,7 @@ module.exports = {
 
     dest_port:{
       type:'integer',
-      required: true,
-      unique: true
+      required: true
     }
 
   }
